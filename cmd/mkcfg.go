@@ -16,36 +16,35 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/culturadevops/jaivic/services"
 	"github.com/spf13/cobra"
 )
 
-// rmCmd represents the rm command
-var rmCmd = &cobra.Command{
-	Use:   "rm",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+// cfgCmd represents the cfg command
+var cfgCmd = &cobra.Command{
+	Use:   "cfg [mysql] o [yml]",
+	Short: "Crea config como mysql y yml ",
+	Long: `crea archivos dentro de la carpeta config puedes escoger
+	entre mysql y yml`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("rm called")
+		if args[0] == "mysql" {
+			services.VarSrv.CreateConfigMysqlToml()
+		} else if args[0] == "yml" {
+			services.VarSrv.CreateConfigYml(args[1])
+		}
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(rmCmd)
+	mkCmd.AddCommand(cfgCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// rmCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// cfgCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// rmCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// cfgCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

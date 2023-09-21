@@ -1,5 +1,17 @@
 /*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
+Copyright © 2020 NAME HERE <EMAIL ADDRESS>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
 package cmd
 
@@ -12,14 +24,17 @@ import (
 // mkCmd represents the mk command
 var mkCmd = &cobra.Command{
 	Use:   "mk",
-	Short: "Create file [mdl] [rts]",
+	Short: "Crea un archivo [cfg][lib][docker][ctl][mid][mdl][rts]",
 	Long:  ``,
+
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("mk called")
+		fmt.Println("mk  called")
+
 	},
 }
 
 func init() {
+
 	rootCmd.AddCommand(mkCmd)
 
 	// Here you will define your flags and configuration settings.
